@@ -69,16 +69,18 @@ var draw = (function() {
       y2=y;
     },
 
-    //Sets the shape to be drawn
-    setShape: function(shp) {
-      shape = shp;
-    },
     setColor: function(col){
-      color = col;
+      color= col;
+      alert(color);
     },
 
     getColor:function(){
       return color;
+    },
+
+    //Sets the shape to be drawn
+    setShape: function(shp) {
+      shape = shp;
     },
     
     getShape: function() {
@@ -252,6 +254,6 @@ document.getElementById('btnTriangle').addEventListener('click', function(){
   draw.setShape('triangle');
 }, false);
 
-document.getElementById('btncolor').addEventListener('click', function(){
+document.getElementById('btncolor').addEventListener('change', function(){
   draw.setColor(document.getElementById('btncolor').value);
 }, false);
