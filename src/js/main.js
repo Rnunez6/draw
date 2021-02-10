@@ -133,7 +133,7 @@ var draw = (function() {
     //Draw a line
     drawLine: function() {
       //Start by using random fill colors.
-      ctx.strokeStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.strokeStyle = this.getColor();
       ctx.beginPath();
       ctx.moveTo(x1, y1);
       ctx.lineTo(x2, y2);
@@ -160,10 +160,31 @@ var draw = (function() {
 
     drawTriangle: function()
     {
-      
-      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
-      ctx.fillRect (x1,y1,(x2),(y2));
-      ctx.fill
+      var a = (x1-x2);
+      var b = (y1-y2);
+      var c = Math.sqrt(a*a + b*b);
+      var d = x1+c;
+      var e = y1+c;
+
+      if(x1>x2)
+      {
+        d = x1-c;
+      }
+
+      if(x1>x2)
+      {
+        d = y1-c;
+      }
+
+      ctx.fillStyle = this.getColor();
+      ctx.beginPath();
+      ctx.moveTo(x1,y1);
+      ctx.lineTo(d,e);
+      ctx.lineTo(x2,y2);
+      ctx.lineTo(x1,y1);
+
+      ctx.stroke();
+      ctx.fill();
     },
 
 
