@@ -71,6 +71,7 @@ var draw = (function() {
 
     setColor: function(col){
       color= col;
+
     },
 
     getColor:function(){
